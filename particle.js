@@ -7,7 +7,7 @@ class Particle {
 		// this.y = random(0, height);
 		this.x = vehicle.position.x;
 		this.y = vehicle.position.y;
-		this.r = random(5, 24);
+		this.r = random(5, 16);
 		this.xSpeed = random(-2, 2);
 		this.ySpeed = random(-1, 1.5);
 		this.color = "hsl(" + hue + ", 75%, 50%)";
@@ -47,12 +47,12 @@ class Particle {
 	// 	});
 	// }
 	update() {
-		this.r -= 0.1;
+		this.r -= 0.05;
 	}
 	handleParticles() {
 		particles.forEach((element) => {
 			let dis = dist(this.x, this.y, element.x, element.y);
-			if (dis < 55) {
+			if (dis < 75 && dis > 30) {
                 strokeWeight(0.1)
 				stroke(this.color);
 				line(this.x, this.y, element.x, element.y);
